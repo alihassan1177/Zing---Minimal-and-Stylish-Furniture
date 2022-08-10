@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Zing | Minimal and Stylish Furniture</title>
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="shortcut icon" href="./img/logo.png" type="image/x-icon" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+      integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <header class="shadow-sm">
+      <nav class="container relative flex justify-between items-center py-5">
+        <a class="font-bold text-2xl" href="#"
+          >Zing <span class="text-orange-500">.</span></a
+        >
+        <ul
+          class="flex items-center text-base gap-10 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+        >
+          <li><a class="nav-link" href="#">Home</a></li>
+          <li><a class="nav-link" href="#">About Us</a></li>
+          <li>
+            <div class="dropdown relative">
+              <a class="nav-link" href="#"
+                >Products <i class="ml-1 fa-solid fa-angle-down"></i
+              ></a>
+              <ul
+                class="dropdown-menu absolute shadow-md bg-neutral-50 top-8 -translate-x-1 rounded overflow-hidden"
+              >
+                <li>
+                  <a class="dropdown-link" href="#">Chairs</a>
+                </li>
+                <li>
+                  <a class="dropdown-link" href="#">Beds</a>
+                </li>
+                <li>
+                  <a class="dropdown-link" href="#">Cupboards</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li><a class="nav-link" href="#">Testimonial</a></li>
+        </ul>
+        <ul class="flex items-center gap-10 text-base">
+          <li><a class="nav-link" href="#">Contact Us</a></li>
+          <li>
+            <a
+              class="bg-orange-500 hover:bg-orange-600 transition-colors text-white px-6 py-3"
+              href="#"
+              >Buy Online</a
+            >
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section class="container flex flex-col items-center gap-10 py-20">
+        <div class="relative -z-10">
+          <h1 class="text-center text-gray-800 text-8xl font-bold">
+            Amazing Furniture for your Home
+          </h1>
+          <img
+            class="absolute top-14 -right-6"
+            src="./img/hero-element.svg"
+            alt="element"
+          />
+        </div>
+        <p class="text-center text-gray-600 text-xl max-w-3xl">
+          We think the chair is the most important piece of furniture in your
+          home. Because if you love the chair you are sitting in chances are you
+          will love the rest of the room.
+        </p>
+        <div class="max-w-3xl w-full relative">
+          <input
+            type="text"
+            placeholder="Search Your Product"
+            class="w-full shadow-lg text-xl shadow-gray-600 p-9 rounded"
+          />
+          <i
+            class="top-1/2 right-9 text-2xl text-gray-600 -translate-y-1/2 absolute fa-solid fa-search"
+          ></i>
+        </div>
+      </section>
+      <img class="w-full relative -mt-32 -z-10" src="./img/hero.svg" alt="" />
+
+      <section class="container py-24">
+        <div class="flex items-end gap-10">
+          <div>
+            <h2 class="text-6xl text-gray-800 font-bold">About Us</h2>
+            <p class="text-xl text-gray-600 mt-6 max-w-md">
+              Comfort is key and how you feel about your chair will affect how
+              you feel and your mood.
+            </p>
+            <div class="grid grid-cols-2 gap-7 mt-20">
+              <div class="flex flex-col gap-3">
+                <h3 class="text-orange-500 text-6xl font-bold">1</h3>
+                <strong class="text-gray-800 text-2xl">Mission</strong>
+                <p class="text-gray-400 text-xl">
+                  It makes people at ease and feel like they want to open up.
+                </p>
+              </div>
+              <div class="flex flex-col gap-3">
+                <h3 class="text-orange-500 text-6xl font-bold">2</h3>
+                <strong class="text-gray-800 text-2xl">Motivation</strong>
+                <p class="text-gray-400 text-xl">
+                  The perfect mix of art that complements the room's style.
+                </p>
+              </div>
+              <div class="flex flex-col gap-3">
+                <h3 class="text-orange-500 text-6xl font-bold">3</h3>
+                <strong class="text-gray-800 text-2xl">Vision</strong>
+                <p class="text-gray-400 text-xl">
+                  Along with a healthy dose of negative space to give the eyes
+                  spots to rest.
+                </p>
+              </div>
+              <div class="flex flex-col gap-3">
+                <h3 class="text-orange-500 text-6xl font-bold">4</h3>
+                <strong class="text-gray-800 text-2xl">Goal</strong>
+                <p class="text-gray-400 text-xl">
+                  Art that has meaning to the people who live in the space,
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="flex justify-between w-full gap-5">
+            <div class="flex flex-col gap-5 mt-12">
+              <img src="./img/img-grid-1.jpg" />
+              <img src="./img/img-grid-4.jpg" />
+            </div>
+            <div class="flex flex-col gap-5">
+              <img src="./img/img-grid-2.jpg" />
+              <img src="./img/img-grid-3.jpg" />
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="bg-cyan-900 py-20">
+        <div class="container">
+          <h2 class="text-6xl text-white font-bold">
+            What do customers say...
+          </h2>
+          <div class="flex justify-center gap-28 items-center mt-10">
+            <div class="relative">
+              <img src="./img/test.png" />
+              <img class="absolute -bottom-4 -left-4" src="./img/Star.svg" />
+            </div>
+            <div>
+              <img src="./img/quote-up.svg" />
+              <h3 class="text-white font-bold text-4xl">Amazing Service</h3>
+              <p class="mt-6 text-xl text-white max-w-sm">
+                Since the online marketplace can be a scary place, the presence
+                of customer reviews on an online store helps establish
+                authenticity, confidence, and trust among shoppers.
+              </p>
+              <p class="mt-6 font-bold text-xl text-orange-500">Wade Warren</p>
+              <p class="text-sm text-white">Doctor</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="container py-24">
+        <div class="flex items-end gap-10">
+          <div class="flex w-full gap-5">
+            <div class="flex flex-col gap-5 mt-12">
+              <img src="./img/img-2-1.jpg" />
+              <img src="./img/img-2-4.jpg" />
+            </div>
+            <div class="flex flex-col gap-5">
+              <img src="./img/img-2-2.jpg" />
+              <img src="./img/img-2-3.jpg" />
+            </div>
+          </div>
+          <div class="w-full">
+            <h2 class="text-6xl font-bold text-gray-800">Contact Us</h2>
+            <p class="text-gray-600 text-xl mt-6">
+              Our team would love to hear from you!
+            </p>
+            <form class="flex flex-col gap-5 mt-10">
+              <div class="flex items-center gap-5 w-full">
+                <input
+                  type="text"
+                  class="border-2 border-black p-3 w-full"
+                  placeholder="First Name"
+                />
+                <input
+                  type="text"
+                  class="border-2 border-black p-3 w-full"
+                  placeholder="Last Name"
+                />
+              </div>
+              <input
+                type="text"
+                class="border-2 border-black p-3 w-full"
+                placeholder="Email Address"
+              />
+              <textarea
+                class="border-2 resize-none border-black p-3 w-full"
+                cols="30"
+                rows="10"
+                placeholder="Message"
+              ></textarea>
+              <button
+                class="font-bold bg-orange-500 text-white py-3 hover:bg-orange-600 transition-colors"
+              >
+                Send Message
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="bg-orange-50">
+      <div class="pt-20 pb-10 flex items-start justify-between container">
+        <div class="max-w-max">
+          <a class="font-bold text-2xl" href="#"
+            >Zing <span class="text-orange-500">.</span></a
+          >
+          <p class="mt-3 text-gray-700">
+            4517 Washington Ave. Manchester, <br />
+            Kentucky 39495
+          </p>
+        </div>
+        <div class="max-w-max">
+          <p class="font-bold text-2xl">Quick Links</p>
+          <ul class="flex flex-col mt-3 gap-3">
+            <li>
+              <a class="text-gray-700 hover:text-gray-900" href="#">Gallery</a>
+            </li>
+            <li>
+              <a class="text-gray-700 hover:text-gray-900" href="#">About Us</a>
+            </li>
+            <li>
+              <a class="text-gray-700 hover:text-gray-900" href="#"
+                >Buy Online</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div class="max-w-max">
+          <p class="font-bold text-2xl">Policy</p>
+          <ul class="flex flex-col mt-3 gap-3">
+            <li>
+              <a class="text-gray-700 hover:text-gray-900" href="#"
+                >Terms and Conditions</a
+              >
+            </li>
+            <li>
+              <a class="text-gray-700 hover:text-gray-900" href="#"
+                >Privacy Policy</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div class="max-w-max">
+          <p class="font-bold text-2xl">Social</p>
+          <ul class="flex flex-col mt-3 gap-3">
+            <li>
+              <a class="text-gray-700 hover:text-gray-900" href="#">Facebook</a>
+            </li>
+            <li>
+              <a class="text-gray-700 hover:text-gray-900" href="#"
+                >Instagram</a
+              >
+            </li>
+            <li>
+              <a class="text-gray-700 hover:text-gray-900" href="#">LinkedIn</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <p class="text-center pb-5 text-gray-800 mt-12">
+        Copyright ©2022 Zing Inc. All right reserved.
+      </p>
+    </footer>
+  </body>
+</html>
