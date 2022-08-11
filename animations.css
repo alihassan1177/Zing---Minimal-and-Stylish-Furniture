@@ -1,0 +1,89 @@
+.d-none {
+  display: none;
+}
+
+.fade-in {
+  display: flex;
+  animation: fade-in 500ms ease-in-out forwards;
+}
+
+.fade-out {
+  display: none;
+  animation: fade-out 500ms ease-in-out forwards;
+}
+
+.overlay-in {
+  display: flex;
+  animation: overlay-in 500ms ease-in-out forwards;
+}
+
+.overlay-out {
+  display: none;
+  animation: overlay-out 500ms ease-in-out forwards;
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes overlay-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 50%;
+  }
+}
+@keyframes overlay-out {
+  0% {
+    opacity: 50%;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+#svg-arrow path {
+  fill: transparent;
+  stroke: #f66b0e;
+  stroke-width: 1;
+  stroke-dasharray: 1244px;
+  stroke-dashoffset: 1244px;
+  animation: animate-svg-arrow 5s linear forwards;
+}
+
+@keyframes animate-svg-arrow {
+  0% {
+    stroke-dashoffset: 1244px;
+  }
+
+  80% {
+    stroke-dasharray: 1244px;
+    stroke-dashoffset: 0;
+    fill: transparent;
+  }
+  100% {
+    fill: #f66b0e;
+  }
+}
+
+.slide-in {
+  transform: translateX(0%);
+}
+
+.slide-out {
+  transform: translateX(200%);
+}

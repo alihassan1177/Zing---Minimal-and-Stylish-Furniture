@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Zing | Minimal and Stylish Furniture</title>
     <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./animations.css" />
     <link rel="shortcut icon" href="./img/logo.png" type="image/x-icon" />
     <link
       rel="stylesheet"
@@ -14,14 +15,14 @@
       crossorigin="anonymous"
     />
   </head>
-  <body>
+  <body class="overflow-x-hidden">
     <header class="shadow-sm">
       <nav class="container relative flex justify-between items-center py-5">
         <a class="font-bold text-2xl" href="#"
           >Zing <span class="text-orange-500">.</span></a
         >
         <ul
-          class="flex items-center text-base gap-10 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+          class="hidden lg:flex items-center text-base gap-10 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
         >
           <li><a class="nav-link" href="#">Home</a></li>
           <li><a class="nav-link" href="#">About Us</a></li>
@@ -47,7 +48,7 @@
           </li>
           <li><a class="nav-link" href="#">Testimonial</a></li>
         </ul>
-        <ul class="flex items-center gap-10 text-base">
+        <ul class="hidden lg:flex items-center gap-10 text-base">
           <li><a class="nav-link" href="#">Contact Us</a></li>
           <li>
             <a
@@ -57,7 +58,58 @@
             >
           </li>
         </ul>
+        <button class="lg:hidden" id="open-btn">
+          <i class="text-2xl fa-solid fa-bars"></i>
+        </button>
       </nav>
+      <div
+        class="overlay overlay-out lg:hidden absolute inset-0 bg-black z-10"
+      ></div>
+      <div
+        id="mobile-navigation"
+        class="lg:hidden absolute transition-transform slide-out right-0 py-6 px-10 max-w-sm w-full top-0 bottom-0 z-50 bg-white"
+      >
+        <div class="flex justify-end mb-4">
+          <button id="close-btn">
+            <i class="fa-solid fa-close text-2xl"></i>
+          </button>
+        </div>
+        <ul class="flex flex-col gap-4">
+          <li><a class="nav-link text-2xl py-4" href="#">Home</a></li>
+          <li><a class="nav-link text-2xl py-4" href="#">About Us</a></li>
+          <li>
+            <div class="dropdown relative">
+              <a class="nav-link text-2xl py-4" href="#"
+                >Products <i class="ml-1 fa-solid fa-angle-down"></i
+              ></a>
+              <ul
+                class="dropdown-menu absolute shadow-md bg-neutral-50 top-8 translate-x-16 rounded overflow-hidden"
+              >
+                <li>
+                  <a class="dropdown-link" href="#">Chairs</a>
+                </li>
+                <li>
+                  <a class="dropdown-link" href="#">Beds</a>
+                </li>
+                <li>
+                  <a class="dropdown-link" href="#">Cupboards</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li><a class="nav-link py-4 text-2xl" href="#">Testimonial</a></li>
+          <li>
+            <a class="nav-link py-4 text-2xl" href="#">Contact Us</a>
+          </li>
+          <li>
+            <a
+              class="bg-orange-500 mt-2 inline-block hover:bg-orange-600 transition-colors text-white text-2xl px-6 py-3"
+              href="#"
+              >Buy Online</a
+            >
+          </li>
+        </ul>
+      </div>
     </header>
 
     <main>
@@ -66,11 +118,23 @@
           <h1 class="text-center text-gray-800 text-8xl font-bold">
             Amazing Furniture for your Home
           </h1>
-          <img
-            class="absolute top-14 -right-6"
-            src="./img/hero-element.svg"
-            alt="element"
-          />
+          <div
+            id="svg-arrow"
+            class="absolute lg:top-14 top-40 -z-10 right-0 lg:-right-6"
+          >
+            <svg
+              width="200"
+              height="230"
+              viewBox="0 0 197 230"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M125.127 212.895C126.48 212.726 126.987 212.895 127.495 212.726C158.438 194.077 179.406 167.629 187.353 132.027C189.382 123.042 189.044 113.717 186.677 104.562C181.773 84.8965 165.371 71.3337 145.249 70.147C134.766 69.4688 124.62 70.6556 115.489 76.4198C114.813 81.3363 114.306 86.2528 113.291 90.8302C111.6 98.2897 107.711 104.393 100.778 108.123C95.7056 111.005 90.6328 111.005 87.9274 108.292C84.3764 104.732 84.3765 99.9851 86.5747 96.0858C89.6183 90.6607 93.3383 85.5746 97.2274 80.8276C99.7637 77.776 103.146 75.233 106.189 72.69C103.315 53.5326 85.2219 45.3949 63.5783 53.3631C62.9019 56.0756 62.2255 58.9577 61.38 61.6702C57.9982 71.6728 51.7419 79.3018 41.5964 82.8621C37.7073 84.2183 33.48 84.727 30.0982 81.1667C27.5618 78.4542 27.5618 73.7072 30.2673 68.9602C34.6637 61.5007 41.2582 56.2451 48.3601 51.6677C50.8964 50.1419 53.4328 48.6161 55.9692 47.2598C52.5873 17.5913 26.04 -3.43102 0 8.4364C0.169091 6.23245 -1.03306e-05 4.36757 0.676354 3.35036C1.52181 2.16362 3.38181 1.48549 4.90363 1.14642C19.2764 -1.56614 32.6346 0.129206 43.6255 10.6403C51.9109 18.4389 57.491 27.9329 61.211 38.7831C61.7183 40.3089 62.2255 41.8347 62.9019 43.3605C62.9019 43.5301 63.24 43.6996 63.9164 44.2082C65.4382 44.0387 67.2982 44.0387 69.1582 43.6996C91.8164 40.1394 103.653 46.2426 114.136 67.4344C116.166 66.7563 118.533 66.0781 120.731 65.2305C133.751 60.8226 146.771 60.4835 159.96 64.8914C181.435 72.0119 195.3 90.4911 196.822 113.887C197.667 126.602 195.469 138.808 190.904 150.676C179.744 179.327 161.482 201.875 134.089 216.625C132.736 217.473 131.215 218.151 129.862 218.998C129.693 219.168 129.524 219.507 129.016 220.524C134.766 221.88 140.177 221.372 145.587 221.033C150.829 220.863 156.24 220.355 161.989 220.016C161.482 224.423 159.115 226.119 156.24 227.136C152.858 228.153 149.477 229.509 146.095 229.679C136.964 230.018 127.664 230.188 118.364 229.679C111.093 229.17 109.064 225.271 112.276 219.337C119.209 206.792 126.311 194.246 133.413 181.701C134.596 179.666 136.118 177.971 137.978 175.597C141.191 179.327 139.838 182.04 138.655 184.583C133.92 193.738 129.693 202.893 125.127 212.895ZM35.1709 76.0807C46.8382 74.5549 54.1091 67.0954 54.6164 56.5842C46.8382 61.6702 39.3982 66.2477 35.1709 76.0807ZM92.3237 102.359C102.3 99.9851 107.035 93.2037 106.02 82.8621C99.5947 88.2872 94.0146 93.3732 92.3237 102.359Z"
+                fill="#F66B0E"
+              />
+            </svg>
+          </div>
         </div>
         <p class="text-center text-gray-600 text-xl max-w-3xl">
           We think the chair is the most important piece of furniture in your
@@ -91,7 +155,7 @@
       <img class="w-full relative -mt-32 -z-10" src="./img/hero.svg" alt="" />
 
       <section class="container py-24">
-        <div class="flex items-end gap-10">
+        <div class="flex items-end lg:flex-row flex-col gap-10">
           <div>
             <h2 class="text-6xl text-gray-800 font-bold">About Us</h2>
             <p class="text-xl text-gray-600 mt-6 max-w-md">
@@ -130,7 +194,7 @@
               </div>
             </div>
           </div>
-          <div class="flex justify-between w-full gap-5">
+          <div class="flex justify-center w-full gap-5">
             <div class="flex flex-col gap-5 mt-12">
               <img src="./img/img-grid-1.jpg" />
               <img src="./img/img-grid-4.jpg" />
@@ -142,12 +206,128 @@
           </div>
         </div>
       </section>
+
+      <section class="container py-24">
+        <h2 class="text-center text-6xl font-bold">Products</h2>
+
+        <ul
+          class="flex flex-wrap items-center justify-center gap-5 text-gray-400 text-xl mt-10"
+        >
+          <li>
+            <button data-filter="all" class="tab-link active">All</button>
+          </li>
+          <li><button data-filter="chair" class="tab-link">Chair</button></li>
+          <li><button data-filter="table" class="tab-link">Table</button></li>
+          <li><button data-filter="bed" class="tab-link">Bed</button></li>
+          <li><button class="tab-link" data-filter="closet">Closet</button></li>
+          <li><button class="tab-link" data-filter="sofa">Sofa</button></li>
+          <li>
+            <button class="tab-link" data-filter="cabinet">Cabinet</button>
+          </li>
+        </ul>
+
+        <div
+          class="product-grid grid lg:grid-cols-4 sm:grid-cols-2 gap-x-7 gap-y-44 mt-48"
+        >
+          <div data-product="chair" class="product-card">
+            <img
+              class="absolute left-1/2 -translate-x-1/2 -top-32"
+              src="./img/Chair.png"
+            />
+            <p class="font-bold text-xl mt-10">Chair</p>
+            <div class="flex justify-between items-center">
+              <p class="font-semibold text-lg">$19</p>
+              <i class="text-orange-500 text-lg fa-solid fa-arrow-right"></i>
+            </div>
+          </div>
+          <div data-product="chair" class="product-card">
+            <img
+              class="absolute left-1/2 -translate-x-1/2 -top-32"
+              src="./img/Chair-2.png"
+            />
+            <p class="font-bold text-xl mt-10">Stool</p>
+            <div class="flex justify-between items-center">
+              <p class="font-semibold text-lg">$19</p>
+              <i class="text-orange-500 text-lg fa-solid fa-arrow-right"></i>
+            </div>
+          </div>
+          <div data-product="table" class="product-card">
+            <img
+              class="absolute left-1/2 -translate-x-1/2 -top-20"
+              src="./img/tea-table.png"
+            />
+            <p class="font-bold text-xl mt-10">Tea Table</p>
+            <div class="flex justify-between items-center">
+              <p class="font-semibold text-lg">$19</p>
+              <i class="text-orange-500 text-lg fa-solid fa-arrow-right"></i>
+            </div>
+          </div>
+          <div data-product="table" class="product-card">
+            <img
+              class="absolute left-1/2 -translate-x-1/2 -top-36"
+              src="./img/table-lamp.png"
+            />
+            <p class="font-bold text-xl mt-10">Table Lamp</p>
+            <div class="flex justify-between items-center">
+              <p class="font-semibold text-lg">$19</p>
+              <i class="text-orange-500 text-lg fa-solid fa-arrow-right"></i>
+            </div>
+          </div>
+          <div data-product="table" class="product-card">
+            <img
+              class="absolute left-1/2 -translate-x-1/2 -top-24"
+              src="./img/bed-table.png"
+            />
+            <p class="font-bold text-xl mt-10">Bed Table</p>
+            <div class="flex justify-between items-center">
+              <p class="font-semibold text-lg">$19</p>
+              <i class="text-orange-500 text-lg fa-solid fa-arrow-right"></i>
+            </div>
+          </div>
+          <div data-product="chair" class="product-card">
+            <img
+              class="absolute left-1/2 -translate-x-1/2 -top-24"
+              src="./img/Stool.png"
+            />
+            <p class="font-bold text-xl mt-10">Stool</p>
+            <div class="flex justify-between items-center">
+              <p class="font-semibold text-lg">$19</p>
+              <i class="text-orange-500 text-lg fa-solid fa-arrow-right"></i>
+            </div>
+          </div>
+          <div data-product="sofa" class="product-card">
+            <img
+              class="absolute left-1/2 -translate-x-1/2 -top-36"
+              src="./img/sofa-white.png"
+            />
+            <p class="font-bold text-xl mt-10">Sofa Light</p>
+            <div class="flex justify-between items-center">
+              <p class="font-semibold text-lg">$19</p>
+              <i class="text-orange-500 text-lg fa-solid fa-arrow-right"></i>
+            </div>
+          </div>
+          <div data-product="sofa" class="product-card">
+            <img
+              class="absolute left-1/2 -translate-x-1/2 -top-36"
+              src="./img/sofa-black.png"
+            />
+            <p class="font-bold text-xl mt-10">Sofa Dark</p>
+            <div class="flex justify-between items-center">
+              <p class="font-semibold text-lg">$19</p>
+              <i class="text-orange-500 text-lg fa-solid fa-arrow-right"></i>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section class="bg-cyan-900 py-20">
         <div class="container">
           <h2 class="text-6xl text-white font-bold">
             What do customers say...
           </h2>
-          <div class="flex justify-center gap-28 items-center mt-10">
+          <div
+            class="flex justify-center sm:flex-row flex-col gap-28 items-center mt-10"
+          >
             <div class="relative">
               <img src="./img/test.png" />
               <img class="absolute -bottom-4 -left-4" src="./img/Star.svg" />
@@ -168,8 +348,8 @@
       </section>
 
       <section class="container py-24">
-        <div class="flex items-end gap-10">
-          <div class="flex w-full gap-5">
+        <div class="flex items-end lg:flex-row flex-col-reverse gap-10">
+          <div class="flex w-full gap-5 justify-center">
             <div class="flex flex-col gap-5 mt-12">
               <img src="./img/img-2-1.jpg" />
               <img src="./img/img-2-4.jpg" />
@@ -220,7 +400,9 @@
     </main>
 
     <footer class="bg-orange-50">
-      <div class="pt-20 pb-10 flex items-start justify-between container">
+      <div
+        class="pt-20 pb-10 sm:flex-row flex-col flex items-start justify-between container gap-y-10"
+      >
         <div class="max-w-max">
           <a class="font-bold text-2xl" href="#"
             >Zing <span class="text-orange-500">.</span></a
@@ -282,5 +464,7 @@
         Copyright ©2022 Zing Inc. All right reserved.
       </p>
     </footer>
+
+    <script src="./script.js"></script>
   </body>
 </html>
